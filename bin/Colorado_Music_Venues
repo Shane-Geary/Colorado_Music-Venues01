@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/Colorado_Music_Venues'
+
+ColoradoMusicVenues::CLI.new.call
