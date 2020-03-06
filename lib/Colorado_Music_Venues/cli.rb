@@ -7,7 +7,7 @@ class ColoradoMusicVenues::CLI
     end 
 
     def get_venues
-        @venue = ColoradoMusicVenues::Scraper.all
+        @venue = ColoradoMusicVenues::Venue.all
     end
 
     def list_venues
