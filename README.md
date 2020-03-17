@@ -1,7 +1,7 @@
 # ColoradoMusicVenues
 
-
-TODO: Delete this and the text above, and describe your gem
+This is a Cli data gem called Colorado Music Venues. With this, a user who is seeking information on 
+music venues in Colorado will be able to use this to give them just that.
 
 ## Installation
 

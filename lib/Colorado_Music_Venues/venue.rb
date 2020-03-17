@@ -1,7 +1,7 @@
 class ColoradoMusicVenues::Venue 
 
     attr_accessor :name, :info 
-    @@all = [] 
+    @@all = []
 
     def initialize(name)
         @name = name 
@@ -11,12 +11,12 @@ class ColoradoMusicVenues::Venue
 
     def self.all
         ColoradoMusicVenues::Scraper.venue_scraper if @@all.empty?
-        @@all 
+        #@@all.select {|v| v.index(1, 9)}
+        @@all
     end 
 
-    def info 
-        ColoradoMusicVenues::Scraper.info_scraper(self) if @info.empty?
-        @info 
+    def get_info 
+        ColoradoMusicVenues::Scraper.info_scraper(self) if @info.empty? 
     end 
 
     def save 

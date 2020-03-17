@@ -1,18 +1,22 @@
 class ColoradoMusicVenues::Scraper  
 
     def self.venue_scraper
-        page = Nokogiri::HTML(open("https://www.uncovercolorado.com/concerts/")
+        page = Nokogiri::HTML(open("https://www.uncovercolorado.com/concerts/"))
 
-        venues_1 = page.css("strong"[1])
-        venues_2 = page.css("strong"[9])
+        page.css("td").each do |element|
+            name = element.css("strong").text 
+            ColoradoMusicVenues::Venue.new(name)
         end 
     end 
 
     def self.info_scraper
-        ColoradoMusicVenues::Info.new
-        ColoradoMusicVenues::Info.new
+        page = Nokogiri::HTML(open("https://www.uncovercolorado.com/concerts/"))
+
+        #page.css("td").each do |element|
+            element.css()
+        #end
     end 
 end 
 
-ColoradoMusicVenues::Scraper.venue_scraper 
+#ColoradoMusicVenues::Scraper.venue_scraper 
 
