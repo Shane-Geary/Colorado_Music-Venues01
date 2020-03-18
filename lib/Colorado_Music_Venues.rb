@@ -10,5 +10,4 @@ require 'pry'
 
 module ColoradoMusicVenues
   class Error < StandardError; end
-  # Your code goes here...
 end

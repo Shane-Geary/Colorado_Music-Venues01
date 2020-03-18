@@ -8,6 +8,7 @@ class ColoradoMusicVenues::CLI
         get_venues
         list_venues
         get_user_venue
+        display_venues_for
         goodbye
     end 
 
@@ -20,17 +21,18 @@ class ColoradoMusicVenues::CLI
             puts "#{index}. #{venue.name}" 
         end 
         puts "Choose a venue number to see more info."
-        case get_user_venue
-        when get_user_venue != valid_input
+        user_input = gets.strip
+        case user_input
+        when user_input == "exit"
+        goodbye 
+        else 
             puts "Not sure what you want, enter the venues number for more info."
-        when get_user_venue = "exit"
-            goodbye
         end 
     end 
 
     def get_user_venue
         chosen_venue = gets.strip.to_i
-        display_venues_for(chosen_venue) if valid_input(chosen_venue, @venue)
+        display_venues_for(chosen_venue) if valid_input(chosen_venue, @venue) 
     end 
 
     def display_venues_for(chosen_venue)
@@ -40,9 +42,9 @@ class ColoradoMusicVenues::CLI
         venue.info.each do |info|
             puts "#{info}"
             puts "type list to go back to the venues or type exit."
-            case get_user_venue
-            when get_user_venue = "list"
-            list_venues
+            case user_input
+            when user_input = "list"
+            list_venues 
         end 
     end 
 
@@ -51,9 +53,8 @@ class ColoradoMusicVenues::CLI
     end 
 
     def goodbye
-        if get_user_venue == "exit"
+        #if user_input == "exit"
             puts "See you at the next big show!"
-            end 
         end 
     end 
 end  

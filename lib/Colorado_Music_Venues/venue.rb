@@ -1,10 +1,11 @@
 class ColoradoMusicVenues::Venue 
 
-    attr_accessor :name, :info 
+    attr_accessor :name, :info, :url 
     @@all = []
 
-    def initialize(name)
+    def initialize(name, url)
         @name = name 
+        @url = url 
         @info = [] 
         save 
     end 
