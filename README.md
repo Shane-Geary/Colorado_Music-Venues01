@@ -21,7 +21,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+User is greeted, then asked to type in simple commands to get info on listed venues.
 
 ## Development
 

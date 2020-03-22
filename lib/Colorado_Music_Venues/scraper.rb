@@ -11,13 +11,14 @@ class ColoradoMusicVenues::Scraper
     end 
 
     def self.info_scraper(venue)
-        page = Nokogiri::HTML(open(venue.url))
+        page = Nokogiri::HTML(open(venue.url)) 
         
         page.css("div").each do |element|
-            name = element.css("p").text 
+            name = element.css("p").first 
         end
     end 
 end 
 
+#page.css("div.entry-content") 
 #ColoradoMusicVenues::Scraper.venue_scraper 
 
