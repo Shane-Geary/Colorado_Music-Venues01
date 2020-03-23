@@ -13,7 +13,7 @@ class ColoradoMusicVenues::Venue
     def self.all
         ColoradoMusicVenues::Scraper.venue_scraper if @@all.empty?
         #@@all.select {|v| v.index(1, 9)} 
-        @@all
+        @@all 
     end 
 
     def get_info 
