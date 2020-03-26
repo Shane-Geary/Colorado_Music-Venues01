@@ -12,10 +12,8 @@ class ColoradoMusicVenues::Scraper
 
     def self.info_scraper(venue)
         page = Nokogiri::HTML(open(venue.url)) 
+        venue.info = page.css("div.entry-content p").first.text 
         
-        page.css("div").each do |element|
-            name = element.css("p").first 
-        end
     end 
 end 
 

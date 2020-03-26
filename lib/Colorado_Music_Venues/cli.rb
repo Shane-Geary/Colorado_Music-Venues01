@@ -33,16 +33,14 @@ class ColoradoMusicVenues::CLI
 
     def display_venues_for(chosen_venue) 
         venue = @venue[chosen_venue - 1] 
-        venue.get_info
+        venue.get_info 
         puts "#{@@cyn}Here is some info on #{venue.name}...#{@@white}"
-        venue.info.each do |info|
-            puts "#{info}"
-            puts "#{@@cyn}type list to go back to the venues or type exit.#{@@white}"
-            end 
-        end 
+        puts venue.info
+        puts "#{@@cyn}type list to go back to the venues or type exit.#{@@white}"
+    end 
 
     def menu 
-        user_input = gets.strip.to_s 
+        user_input = gets.strip 
         case user_input
         when user_input == "list"
         list_venues 

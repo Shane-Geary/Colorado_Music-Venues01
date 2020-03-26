@@ -5,8 +5,7 @@ class ColoradoMusicVenues::Venue
 
     def initialize(name, url)
         @name = name 
-        @url = url 
-        @info = [] 
+        @url = url  
         save 
     end 
 
@@ -16,8 +15,8 @@ class ColoradoMusicVenues::Venue
         @@all 
     end 
 
-    def get_info 
-        ColoradoMusicVenues::Scraper.info_scraper(self) if @info.empty?
+    def get_info  
+        ColoradoMusicVenues::Scraper.info_scraper(self) if !@info 
     end 
 
     def save 
