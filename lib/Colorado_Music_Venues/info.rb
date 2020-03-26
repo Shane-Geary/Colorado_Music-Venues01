@@ -15,7 +15,7 @@ class ColoradoMusicVenues::Info
     end 
 
     def add_to_venue
-        @venue.info << self unless @venue.info.include?(self)
+        @venue.info << self unless @venue.info.include?(self) 
     end 
 
     def save 
