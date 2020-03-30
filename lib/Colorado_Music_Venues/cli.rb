@@ -35,20 +35,23 @@ class ColoradoMusicVenues::CLI
         venue = @venue[chosen_venue - 1] 
         venue.get_info 
         puts "#{@@cyn}Here is some info on #{venue.name}...#{@@white}"
-        puts venue.info
-        puts "#{@@cyn}type list to go back to the venues or type exit.#{@@white}"
+        puts venue.info 
     end 
 
     def menu 
-        user_input = gets.strip 
-        case user_input
-        when user_input == "list"
-        list_venues 
-        when user_input == false 
-            puts "#{@@cyn}Not sure what you want, enter the venues number for more info.#{@@white}"
-            list_venues
-        when user_input == "exit"
-            puts "#{@@cyn}See you at the next big show!#{@@white}"
+        user_input = nil
+        while user_input != "exit"
+            puts "#{@@cyn}Type list to go back to the venues or type exit.#{@@white}"
+            user_input = gets.strip.downcase 
+            case user_input 
+            when "list"
+                list_venues
+                get_user_venue
+            when "exit"
+                puts "#{@@cyn}See you at the next big show!#{@@white}"
+            else   
+            puts "#{@@cyn}Not sure what you want,#{@@white}"
+            end 
         end 
     end 
 end 
