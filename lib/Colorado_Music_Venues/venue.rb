@@ -9,9 +9,9 @@ class ColoradoMusicVenues::Venue
         save 
     end 
 
-    def self.all
+    def self.all 
         ColoradoMusicVenues::Scraper.venue_scraper if @@all.empty?
-        @@all 
+        @@all[0..21]
     end 
 
     def get_info  

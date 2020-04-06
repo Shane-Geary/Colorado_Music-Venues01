@@ -15,8 +15,8 @@ class ColoradoMusicVenues::CLI
         @venue = ColoradoMusicVenues::Venue.all
     end
 
-    def list_venues
-        @venue.each.with_index(1) do |venue, index|
+    def list_venues 
+        @venue.reverse.each.with_index(1) do |venue, index|
             puts "#{index}. #{venue.name}" 
         end 
         puts "#{@@cyn}Choose a venue number to see more info.#{@@white}"
@@ -27,12 +27,12 @@ class ColoradoMusicVenues::CLI
         display_venues_for(chosen_venue) if valid_input(chosen_venue, @venue) 
     end 
 
-    def valid_input(input, data)
+    def valid_input(input, data) 
         input.to_i <= data.length && input.to_i > 0 
     end 
 
     def display_venues_for(chosen_venue) 
-        venue = @venue[chosen_venue - 1] 
+        venue = @venue.reverse[chosen_venue - 1] 
         venue.get_info 
         puts "#{@@cyn}Here is some info on #{venue.name}...#{@@white}"
         puts venue.info 
@@ -41,11 +41,11 @@ class ColoradoMusicVenues::CLI
     def menu 
         user_input = nil
         while user_input != "exit"
-            puts "#{@@cyn}Type list to go back to the venues or type exit.#{@@white}"
+            puts "#{@@cyn}Type list to go back to the venues or type exit.#{@@white}" 
             user_input = gets.strip.downcase 
             case user_input 
             when "list"
-                list_venues
+                list_venues 
                 get_user_venue
             when "exit"
                 puts "#{@@cyn}See you at the next big show!#{@@white}"
